@@ -6,7 +6,6 @@ from .models import Superhero
 from django.http import HttpResponse
 from django.template.loader import get_template
 
-
 def hero_hard_way(request, hero_name):
     hero =  get_object_or_404(Superhero, name=hero_name)
     data = {
@@ -61,6 +60,7 @@ def hero_tags(request, hero_name):
 def hero_details(request, hero_name):
     hero =  get_object_or_404(Superhero, name=hero_name)
     data = {
+        #  'template_variable_name': template_variable_value,
         'hero': hero,
     }
     return render(request, 'superheroes/hero_details.html', data)
