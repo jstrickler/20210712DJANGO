@@ -1,9 +1,11 @@
 #!/usr/bin/env python
 #
+from datetime import datetime
 from django.shortcuts import get_object_or_404, render
 from .models import Superhero
 from django.http import HttpResponse
 from django.template.loader import get_template
+
 
 def hero_hard_way(request, hero_name):
     hero =  get_object_or_404(Superhero, name=hero_name)
@@ -25,10 +27,20 @@ def hero_easy_way(request, hero_name):
     }
     return render(request, 'superheroes/hero_basic.html', data)
 
+def get_time():
+    return datetime.now()
+
 def hero_lookups(request, hero_name):
     hero =  get_object_or_404(Superhero, name=hero_name)
+    state_info  = {
+        'name': 'North Caronlina',
+        'capital': 'Raleigh',
+        'largest_city': 'Charlotte',
+    }
     data = {
         'hero': hero,
+        'value': get_time,  # passing function, not function value
+        'state': state_info,
     }
     return render(request, 'superheroes/hero_lookups.html', data)
 

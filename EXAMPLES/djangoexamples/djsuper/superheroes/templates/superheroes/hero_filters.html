@@ -14,8 +14,12 @@
 <h2>First enemy: {{ hero.enemies.all.0 }}</h2>
 <h3>Raw enemies list: {{ hero.enemies.all }}</h3>
 <h3>Number of enemies: {{ hero.enemies.all | length }}</h3>
+{% comment %}
 <h3>Enemies: {{ hero.enemies.all | join:", " }}</h3>
 <h3>Enemies: <br/>{{ hero.enemies.all | join:"<br/>" }}</h3>
+{% endcomment %}
+{# this is a comment and will not be visible #}
+
 
 </body>
 </html>

@@ -13,7 +13,7 @@ app_name = 'superheroes'
 urlpatterns = [
     path('', views.home, name='home'),
     path('hero/<str:hero_name>/', views.hero, name="hero"),
-    path('hero404x/<str:hero_name>/', views404.hero404, name="hero404"),
+    path('hero404/<str:hero_name>/', views404.hero404, name="hero404"),
     path('hero404sc/<str:hero_name>/', views404.hero404sc, name="hero404sc"),
     path(
         'herotemplate101/<str:hero_name>/',

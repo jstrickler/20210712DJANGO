@@ -13,5 +13,10 @@ urlpatterns = [
     # path('', views.home, name='home'),
     # path('thing', views.thing, name='thing'),
     path('', views.home, name='home'),
-    path('cluck', views.cluck, name='cluck')
+    path('cluck', views.cluck, name='cluck'),
+    path('fail', views.fail, name='fail'),
+    path('greet/<str:color>', views.greet, name='greet'),  # match anything but '/'
+    path('repeat/<int:count>', views.repeat, name='repeat'),   # match 0-9+
+    # path('mypath/<userid:id>', views.login, name='login'),  # custom converter
+    path('<int:pk>', views.get_record, name='get_record')
 ]

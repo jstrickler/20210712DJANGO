@@ -34,9 +34,9 @@ urlpatterns = [
     # To include urls from an app:
     #
     # path('chickencluck', 'chickens.views.cluck'),
-    path('wombats', include('wombats.urls', namespace="wombats")),  # delegate to app's URL config
-    path('chickens', include('chickens.urls', namespace="chickens")),  # delegate to app's URL config
-    path('dolphins', include('dolphins.urls', namespace="dolphins")),  # delegate to app's URL config
+    path('wombats/', include('wombats.urls', namespace="wombats")),  # delegate to app's URL config
+    path('chickens/', include('chickens.urls', namespace="chickens")),  # delegate to app's URL config
+    path('dolphins/', include('dolphins.urls', namespace="dolphins")),  # delegate to app's URL config
     #
     # note: if path (1st arg) is not empty, it will be a prefix to app URL
     # and will follow the hostname, before the path in the app's urls.py
