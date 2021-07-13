@@ -5,7 +5,7 @@ def hello(request):
     return HttpResponse("Welcome, to my groovy web app")
 
 def cheese(request):
-    return HttpResponse("Stinking Bishop")
+    return HttpResponse("<h1>Stinking Bishop</h1>")
 
 
 

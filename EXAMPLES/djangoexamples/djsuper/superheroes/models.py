@@ -1,8 +1,11 @@
+import uuid
 from django.db import models
 
-class Power(models.Model):
-    name = models.CharField(max_length=32, unique=True)
-    description = models.CharField(max_length=512)
+class Power(models.Model):  # table
+   #  id int autoincrement unique
+    name = models.CharField(max_length=32, unique=True)  # column
+    description = models.CharField(max_length=512)  # column
+#    id = models.UUIDField(editable=False, default=uuid.uuid4)
 
     def __str__(self):
         return self.name

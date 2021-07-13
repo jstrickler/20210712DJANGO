@@ -5,6 +5,8 @@ from django.conf.urls import url
 from . import views   # import views from app
 from . import classviews
 
+app_name = "bands"
+
 urlpatterns = [
     # add url patterns for the bands app here
 
