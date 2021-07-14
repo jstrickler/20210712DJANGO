@@ -26,3 +26,12 @@ class Dog(models.Model):
 
     def __str__(self):
         return f"{self.name} ({self.breed})"
+
+    def save(self, *args, **kwargs):
+        valid = ['m', 'f']
+        if self.sex in valid:
+            super().save(*args, **kwargs)
+        else: # valid
+            raise Exception("Sex must be m or f")
+
+
