@@ -37,12 +37,13 @@ class Superhero(models.Model):
     city = models.ForeignKey(City, on_delete=models.CASCADE)
     powers = models.ManyToManyField(Power)
     enemies = models.ManyToManyField(Enemy)
-    objects = SuperheroManager()
+    objects = SuperheroManager()  # includes get_fliers()
 
     def __str__(self):
         return self.name
 
-    class Meta():
+    class Meta:
+        # db_table = 'Superhero'  # table name
         ordering = ['secret_identity']
 
     def get_brief_enemies(self):

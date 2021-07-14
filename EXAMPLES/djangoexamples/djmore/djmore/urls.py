@@ -23,7 +23,7 @@ from django import VERSION
 urlpatterns = [
     path('admin/', admin.site.urls),
     # example
-    path('superheroes/', include('superheroes.urls', namespace="superheroes")),
+    path('', include('superheroes.urls', namespace="superheroes")),
 ]
 
 # include Django Debug toolbar if DEBUG is set

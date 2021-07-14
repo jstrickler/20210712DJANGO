@@ -7,6 +7,8 @@ from . import views_meta
 from . import views_custom
 from . import views_manager
 
+app_name = 'superheroes'
+
 urlpatterns = [
     path('', views.home, name='home'),
     path('herosort', views_meta.hero_sort, name='herosort'),
