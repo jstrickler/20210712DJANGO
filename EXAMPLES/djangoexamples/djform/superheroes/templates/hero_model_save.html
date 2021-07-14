@@ -3,7 +3,7 @@
 
 {% block content %}
 <h1>{{ page_title }}</h1>
-<form action="{% url 'superheroes:heromodel' %}" method="post">
+<form action="{% url 'superheroes:heroadd' %}" method="post">
     {% csrf_token %}
     {{ form | crispy }}
     <input type="submit" value="Search"/>
