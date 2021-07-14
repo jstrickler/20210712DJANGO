@@ -6,11 +6,11 @@ from .models import Band
 
 class BandListView(ListView):
     context_object_name = 'bands'
-    template_name = 'bands_class_list.html'
+    template_name = 'bands/bands_class_list.html'
     model = Band
 
 
 class BandDetailView(DetailView):
     context_object_name = 'band'
-    template_name = 'band_class_details.html'
+    template_name = 'bands/band_class_details.html'
     model = Band

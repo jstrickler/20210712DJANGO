@@ -1,4 +1,4 @@
-{% extends "bands_base.html" %}
+{% extends "bands/bands_base.html" %}
 
 {% block content %}
 
@@ -11,5 +11,5 @@
 {% endfor %}
 </ul>
 
-<a href="{% url 'bands:bandslist' %}">Return to band list</a>
+<a href="{% url 'bands:list' %}">Return to band list</a>
 {% endblock %}
