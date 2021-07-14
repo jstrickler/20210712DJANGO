@@ -86,7 +86,7 @@ def heroform(request):
         return render(request, 'hero_select.html', context)
 
 
-def heromodel(request):
+def heroadd(request):
     """
 
     :param request: HTTP request
@@ -97,15 +97,15 @@ def heromodel(request):
     if request.method == 'POST':
         form = HeroModel(request.POST)
         if form.is_valid():
+            form.save()
             context = {
                 'page_title': 'Hero Details',
                 'name': form.cleaned_data['name'],
                 'secret_identity': form.cleaned_data['secret_identity'],
                 'real_name': form.cleaned_data['real_name'],
+                'heroes': Superhero.objects.all()
             }
-            # form.save()
             return render(request, 'hero_model_results.html', context)
-
     else:
         # unbound (empty) form
         form = HeroModel()
@@ -114,4 +114,11 @@ def heromodel(request):
             'page_title': 'Form Example',
             'form': form,
         }
-        return render(request, 'hero_model_select.html', context)
+        return render(request, 'hero_model_save.html', context)
+
+
+def herolist(request):
+    heroes = Superhero.objects.all()
+    data = {'heroes': heroes}
+    return render(request, 'hero_list.html', data)
+
