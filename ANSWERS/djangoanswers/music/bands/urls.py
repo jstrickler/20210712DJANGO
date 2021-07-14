@@ -18,6 +18,7 @@ urlpatterns = [
     path('genre/<str:genre_name>', views.bands_by_genre, name='genre'),
     path('search/<str:search_term>', views.bands_search, name='search'),
     path('<int:pk>', views.band_details, name='band_details'),
+    path('upper/<int:pk>', views.band_genre, name='band_genre'),
     path('<str:band_name>', views.band_basic, name='basic'),
     path('classlist', classviews.BandListView.as_view(), name='classlist'),
     path('class/<int:pk>', classviews.BandDetailView.as_view(), name='classdetails'),

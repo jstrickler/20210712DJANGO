@@ -29,7 +29,7 @@ def demoform(request):
     """
     invalid = False
 
-    if request.method == 'POST':
+    if request.method == 'POST':  # bound form
         form = DemoForm(request.POST)
         if form.is_valid():
             # if data is valid, show results page
@@ -97,15 +97,19 @@ def heroadd(request):
     if request.method == 'POST':
         form = HeroModel(request.POST)
         if form.is_valid():
-            form.save()
-            context = {
-                'page_title': 'Hero Details',
-                'name': form.cleaned_data['name'],
-                'secret_identity': form.cleaned_data['secret_identity'],
-                'real_name': form.cleaned_data['real_name'],
-                'heroes': Superhero.objects.all()
-            }
-            return render(request, 'hero_model_results.html', context)
+            result = Superhero.objects.filter(name=form.cleaned_data['name'])
+            if result.count() == 0:
+                form.save()   # save data to database!
+                context = {
+                    'page_title': 'Hero Added',
+                    'name': form.cleaned_data['name'],
+                    'secret_identity': form.cleaned_data['secret_identity'],
+                    'real_name': form.cleaned_data['real_name'],
+                    'heroes': Superhero.objects.all()
+                }
+                return render(request, 'hero_model_results.html', context)
+            else:
+                return render(request, 'hero_dupe.html')
     else:
         # unbound (empty) form
         form = HeroModel()
@@ -113,6 +117,7 @@ def heroadd(request):
         context = {
             'page_title': 'Form Example',
             'form': form,
+            'the_view': 'superheroes:heroadd'
         }
         return render(request, 'hero_model_save.html', context)
 

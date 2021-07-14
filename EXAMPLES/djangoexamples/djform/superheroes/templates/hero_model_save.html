@@ -3,10 +3,10 @@
 
 {% block content %}
 <h1>{{ page_title }}</h1>
-<form action="{% url 'superheroes:heroadd' %}" method="post">
+<form action="{% url the_view %}" method="post">
     {% csrf_token %}
     {{ form | crispy }}
-    <input type="submit" value="Search"/>
+    <input type="submit" value="Add"/>
 
 </form>
 

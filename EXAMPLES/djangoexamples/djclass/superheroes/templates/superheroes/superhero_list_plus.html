@@ -11,6 +11,12 @@
     {{ hero.name }}
 </a>
     {{ hero.secret_identity }}
+<a href="{% url 'superheroes:heroupdate' hero.id %}">
+UPDATE
+</a>
+<a href="{% url 'superheroes:herodelete' hero.id %}">
+DELETE
+</a>
 </h3>
 {% endfor %}
 

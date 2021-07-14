@@ -21,5 +21,8 @@ class Band(models.Model):
     genre = models.ForeignKey(Genre, on_delete=models.CASCADE)
     members = models.ManyToManyField(Member)
 
+    def get_genre_upper(self):
+        return self.genre.name.upper()
+
     def __str__(self):
         return self.name

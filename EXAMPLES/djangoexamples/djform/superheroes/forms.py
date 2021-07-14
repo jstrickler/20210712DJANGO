@@ -19,6 +19,9 @@ class DemoForm(forms.Form):
     demo_regex = forms.RegexField(regex=r'(?i)^a[a-z]{1,5}$')
     # submit = forms
 
+    def clean_demo_int1(self):
+        return self.cleaned_data['demo_int1'] // 2
+
     # add clean function here...
     def clean_demo_boolean(self):
         bool = self.cleaned_data['demo_boolean']
@@ -40,12 +43,16 @@ class HeroForm(forms.Form):
 
 
 class HeroModel(forms.ModelForm):
-    class Meta():
+    animal = forms.CharField(max_length=30, required=False)
+
+    class Meta:
         model = Superhero
         fields = ['name', 'real_name', 'city', 'secret_identity']
         labels = {
             'name': 'Hero Name',
-            'city': 'City where they hang out',
+            'city': 'City',
+            'real_name': 'Real Name',
+            'secret_identity': 'Secret Identity'
         }
 
 

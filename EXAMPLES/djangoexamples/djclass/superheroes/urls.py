@@ -4,6 +4,7 @@ URL Configuration for superheroes
 from django.urls import path
 from django.views.generic import TemplateView
 from . import views
+from .models import Superhero
 
 urlpatterns = [
     # welcome page using template view
@@ -13,16 +14,17 @@ urlpatterns = [
         name = 'home'
     ),
 
+    path('other', views.OtherView.as_view(), name='other'),
     # NO view -- don't do this:
     path(
         'noview',
-        TemplateView.as_view(template_name='noview.html'),
+        TemplateView.as_view(template_name='superheroes/generic_only.html'),
         name="noview",
     ),
 
     # minimal views with models
     path(
-        'herolist/',
+        'herolist',
         views.HeroListView.as_view(),
         name="herolist",
     ),
@@ -54,6 +56,16 @@ urlpatterns = [
         'heroupdate/<int:pk>/',
         views.HeroUpdateView.as_view(),
         name="heroupdate",
+    ),
+    path(
+        'herodelete/<int:pk>/',
+        views.HeroDeleteView.as_view(),
+        name="herodelete",
+    ),
+    path(
+        'citycreate',
+        views.CityCreateView.as_view(),
+        name="citycreate",
     ),
     path(
         'success', views.SuccessView.as_view(), name="success",

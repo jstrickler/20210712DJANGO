@@ -1,0 +1,13 @@
+{% extends "dogs_core/dogs_core_base.html" %}
+{% block content %}
+<div class="container">
+<form action="{% url 'dogs_core:add_dog' %}" method="post">
+    {% csrf_token %}
+    <table>
+    {{ form.as_table }}
+    <input type="submit" value="Add"/>
+    </table>
+</form>
+</div>
+{% endblock content %}
+
