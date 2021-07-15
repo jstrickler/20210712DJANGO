@@ -1,7 +1,7 @@
 from django.test import TestCase, tag
 from django.urls import reverse
 
-from .models import Superhero
+from superheroes.models import Superhero
 
 class SuperheroTests(TestCase):
 

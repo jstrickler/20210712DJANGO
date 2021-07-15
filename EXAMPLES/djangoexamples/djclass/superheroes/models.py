@@ -20,12 +20,18 @@ class Power(models.Model):
 class City(models.Model):
     name = models.CharField(max_length=32)
 
+    class Meta:
+        verbose_name_plural = 'cities'
+
     def __str__(self):
         return self.name
 
 class Enemy(models.Model):
     name = models.CharField(max_length=32)
     powers = models.ManyToManyField(Power)
+
+    class Meta:
+        verbose_name_plural = "enemies"
 
     def __str__(self):
         return self.name

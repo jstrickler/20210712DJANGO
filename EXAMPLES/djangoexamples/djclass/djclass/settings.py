@@ -26,8 +26,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+# AUTH_USER_MODEL = 'myapp.users.User'
 # Application definition
+# LOGIN_URL
 
 INSTALLED_APPS = [
     'django.contrib.admin',

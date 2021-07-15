@@ -1,10 +1,14 @@
+from django.contrib.auth.decorators import login_required
 from django.views.generic import (
     TemplateView, ListView, CreateView, DetailView, UpdateView, DeleteView
 )
 from django.urls import reverse_lazy
 from django.shortcuts import render
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Superhero, City
 
+
+@login_required
 def home(request):
     data = {
         "message": "whatever....",
@@ -29,6 +33,7 @@ class HeroListView(ListView):
     model = Superhero
 
 class HeroDetailView(DetailView):
+    #
     model = Superhero
 
 class HeroListViewPlus(ListView):
@@ -43,23 +48,23 @@ class HeroDetailViewPlus(DetailView):
     context_object_name = 'hero'
     template_name = 'superheroes/superhero_detail_plus.html'
 
-class HeroCreateView(CreateView):
+class HeroCreateView(LoginRequiredMixin, CreateView):
     model = Superhero
     fields = ['name', 'real_name', 'secret_identity', 'city']
     success_url = reverse_lazy('superheroes:success')
 
-class CityCreateView(CreateView):
+class CityCreateView(LoginRequiredMixin, CreateView):
     model = City
     fields = ['name']
     success_url = reverse_lazy('superheroes:success')
 
-class HeroUpdateView(UpdateView):
+class HeroUpdateView(LoginRequiredMixin, UpdateView):
     model = Superhero
     # template = "hero_update.html"
     fields = ['name', 'real_name', 'secret_identity', 'city']
     success_url = reverse_lazy('superheroes:success')
 
-class HeroDeleteView(DeleteView):
+class HeroDeleteView(LoginRequiredMixin, DeleteView):
     model = Superhero
     success_url = "/"
 #    success_url = reverse_lazy('superheroes:success')

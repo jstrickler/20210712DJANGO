@@ -12,5 +12,6 @@ urlpatterns = [
     path('heroform', views.heroform, name='heroform'),
     path('heroadd', views.heroadd, name='heroadd'),
     path('herolist', views.herolist, name='herolist'),
+    path('show_color', views.show_color, name='show_color'),
 ]
 

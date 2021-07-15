@@ -18,7 +18,7 @@ class ArtistViewSet(viewsets.ModelViewSet):
      """
     queryset = Artist.objects.all()
     serializer_class = ArtistSerializer
-    filter_backends = [DjangoFilterBackend]
+    # filter_backends = [DjangoFilterBackend]
     filterset_class = ArtistFilter
 
 class ArtworkViewSet(viewsets.ModelViewSet):
@@ -34,6 +34,6 @@ class ArtworkViewSet(viewsets.ModelViewSet):
      """
     queryset = Artwork.objects.all()
     serializer_class = ArtworkSerializer
-    filter_backends = [DjangoFilterBackend]
+    # filter_backends = [DjangoFilterBackend]  # not needed if configured in settings
     filterset_class = ArtworkFilter
 

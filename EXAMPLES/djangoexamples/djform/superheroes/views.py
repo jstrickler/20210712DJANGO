@@ -3,9 +3,13 @@
 
     These are forms illustrating how forms work in Django
 """
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, HttpResponse
 from .forms import DemoForm, HeroForm, HeroModel
 from .models import Superhero
+
+def show_color(request):
+    color = request.session.get('color', 'blue')
+    return HttpResponse(f"<h1>Color is {color}</h1>")
 
 def home(request):
     """

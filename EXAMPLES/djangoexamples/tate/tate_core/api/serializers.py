@@ -4,7 +4,7 @@ from tate_core.models import Artist, Artwork
 
 class ArtworkSerializer(serializers.ModelSerializer):
     artist = serializers.HyperlinkedRelatedField(view_name='tate-api:artist-detail', read_only=True, )
-
+    breed = serializers.StringRelatedField()
     # work-in-progress:
     # artist_name = serializers.StringRelatedField(view_name='artist-detail')
 

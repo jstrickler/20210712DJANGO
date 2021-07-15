@@ -3,6 +3,13 @@ from django.shortcuts import render
 
 # Create your views here.
 
+def wombat_get(request, pk=None):
+    if pk is not None:
+        data = my_serializer(Wombat.objects.all())
+        return data
+    else:
+        data = my_serializer(Wombat.objects.get(pk=pk))
+        return data
 
 
 # example without template (only used in class -- always use templates in real life):

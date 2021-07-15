@@ -29,34 +29,33 @@ def artists(request, guid):
     :param guid:
     :return:
     """
-    if request.method == 'GET':
-        artist = get_object_or_404(Artist, id=guid)
-        serializer = ArtistSerializer(artist, context={'request': request})
-        return Response(serializer.data)
+    artist = get_object_or_404(Artist, id=guid)
+    serializer = ArtistSerializer(artist, context={'request': request})
+    return Response(serializer.data)
 
 # class-based views (aka CBVs)
-class ArtistsList(generics.ListCreateAPIView):
+class ArtistsList(generics.ListCreateAPIView):  #  GET /resource or POST /resource
     queryset = Artist.objects.all()
     serializer_class = ArtistSerializer
     filter_backends = [DjangoFilterBackend]
     filterset_class = ArtistFilter
 
 
-class ArtistsDetail(generics.RetrieveUpdateDestroyAPIView):
+class ArtistsDetail(generics.RetrieveUpdateDestroyAPIView):  # GET/PUT/PATCH/DELETE /resource/ID
     queryset = Artist.objects.all()
     serializer_class = ArtistSerializer
     filter_backends = [DjangoFilterBackend]
     filterset_class = ArtistFilter
 
 # class-based views (aka CBVs)
-class ArtworksList(generics.ListCreateAPIView):
+class ArtworksList(generics.ListCreateAPIView):   # GET/POST  /resource
     queryset = Artwork.objects.all()
     serializer_class = ArtworkSerializer
     filter_backends = [DjangoFilterBackend]
     filterset_class = ArtworkFilter
 
 
-class ArtistsDetail(generics.RetrieveUpdateDestroyAPIView):
+class ArtworksDetail(generics.RetrieveUpdateDestroyAPIView):  # GET/PUT/PATCH/DELETE /resource/ID
     queryset = Artwork.objects.all()
     serializer_class = ArtworkSerializer
     filter_backends = [DjangoFilterBackend]
