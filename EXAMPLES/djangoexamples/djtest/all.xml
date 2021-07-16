@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<django-objects version="1.0">
+    <object model="superheroes.power" pk="1">
+        <field name="name" type="CharField">x-ray vision</field>
+        <field name="description" type="CharField">can see through things</field>
+    </object>
+    <object model="superheroes.power" pk="2">
+        <field name="name" type="CharField">flying</field>
+        <field name="description" type="CharField">can fly unaided</field>
+    </object>
+    <object model="superheroes.power" pk="3">
+        <field name="name" type="CharField">heat vision</field>
+        <field name="description" type="CharField">can heat objects by looking at them</field>
+    </object>
+    <object model="superheroes.power" pk="4">
+        <field name="name" type="CharField">super strength</field>
+        <field name="description" type="CharField">strength of many humans</field>
+    </object>
+    <object model="superheroes.power" pk="5">
+        <field name="name" type="CharField">super speed</field>
+        <field name="description" type="CharField">can think and act at superhuman speed</field>
+    </object>
+    <object model="superheroes.power" pk="6">
+        <field name="name" type="CharField">super durability</field>
+        <field name="description" type="CharField">able to heal at a superhuman rate</field>
+    </object>
+    <object model="superheroes.power" pk="7">
+        <field name="name" type="CharField">wallclimbing</field>
+        <field name="description" type="CharField">ability to cling to surfaces</field>
+    </object>
+    <object model="superheroes.power" pk="8">
+        <field name="name" type="CharField">spider-sense</field>
+        <field name="description" type="CharField">precognition</field>
+    </object>
+    <object model="superheroes.power" pk="9">
+        <field name="name" type="CharField">armor</field>
+        <field name="description" type="CharField">super-intelligent armor</field>
+    </object>
+    <object model="superheroes.city" pk="1">
+        <field name="name" type="CharField">Metropolis</field>
+    </object>
+    <object model="superheroes.city" pk="2">
+        <field name="name" type="CharField">Gateway City</field>
+    </object>
+    <object model="superheroes.city" pk="3">
+        <field name="name" type="CharField">New York City</field>
+    </object>
+    <object model="superheroes.city" pk="4">
+        <field name="name" type="CharField">Los Angeles</field>
+    </object>
+    <object model="superheroes.enemy" pk="1">
+        <field name="name" type="CharField">General Zod</field>
+        <field name="powers" rel="ManyToManyRel" to="superheroes.power"></field>
+    </object>
+    <object model="superheroes.enemy" pk="2">
+        <field name="name" type="CharField">Lex Luthor</field>
+        <field name="powers" rel="ManyToManyRel" to="superheroes.power"></field>
+    </object>
+    <object model="superheroes.enemy" pk="3">
+        <field name="name" type="CharField">Doctor Psycho</field>
+        <field name="powers" rel="ManyToManyRel" to="superheroes.power"></field>
+    </object>
+    <object model="superheroes.enemy" pk="4">
+        <field name="name" type="CharField">Angle Man</field>
+        <field name="powers" rel="ManyToManyRel" to="superheroes.power"></field>
+    </object>
+    <object model="superheroes.enemy" pk="5">
+        <field name="name" type="CharField">Hypnota</field>
+        <field name="powers" rel="ManyToManyRel" to="superheroes.power"></field>
+    </object>
+    <object model="superheroes.enemy" pk="6">
+        <field name="name" type="CharField">Doctor Octopus</field>
+        <field name="powers" rel="ManyToManyRel" to="superheroes.power"></field>
+    </object>
+    <object model="superheroes.enemy" pk="7">
+        <field name="name" type="CharField">Green Goblin</field>
+        <field name="powers" rel="ManyToManyRel" to="superheroes.power"></field>
+    </object>
+    <object model="superheroes.enemy" pk="8">
+        <field name="name" type="CharField">The Mandarin</field>
+        <field name="powers" rel="ManyToManyRel" to="superheroes.power"></field>
+    </object>
+    <object model="superheroes.superhero" pk="1">
+        <field name="name" type="CharField">Superman</field>
+        <field name="real_name" type="CharField">Kal-el</field>
+        <field name="secret_identity" type="CharField">Clark Kent</field>
+        <field name="city" rel="ManyToOneRel" to="superheroes.city">1</field>
+        <field name="powers" rel="ManyToManyRel" to="superheroes.power">
+            <object pk="1"></object>
+            <object pk="2"></object>
+            <object pk="3"></object>
+            <object pk="4"></object>
+            <object pk="5"></object>
+        </field>
+        <field name="enemies" rel="ManyToManyRel" to="superheroes.enemy">
+            <object pk="1"></object>
+            <object pk="2"></object>
+        </field>
+    </object>
+    <object model="superheroes.superhero" pk="2">
+        <field name="name" type="CharField">Wonder Woman</field>
+        <field name="real_name" type="CharField">Diana of Themyscia</field>
+        <field name="secret_identity" type="CharField">Diana Prince</field>
+        <field name="city" rel="ManyToOneRel" to="superheroes.city">2</field>
+        <field name="powers" rel="ManyToManyRel" to="superheroes.power">
+            <object pk="2"></object>
+            <object pk="4"></object>
+            <object pk="5"></object>
+            <object pk="6"></object>
+        </field>
+        <field name="enemies" rel="ManyToManyRel" to="superheroes.enemy">
+            <object pk="3"></object>
+            <object pk="4"></object>
+            <object pk="5"></object>
+        </field>
+    </object>
+    <object model="superheroes.superhero" pk="3">
+        <field name="name" type="CharField">Spider-Man</field>
+        <field name="real_name" type="CharField">Peter Parker</field>
+        <field name="secret_identity" type="CharField">Peter Parker</field>
+        <field name="city" rel="ManyToOneRel" to="superheroes.city">3</field>
+        <field name="powers" rel="ManyToManyRel" to="superheroes.power">
+            <object pk="4"></object>
+            <object pk="7"></object>
+            <object pk="8"></object>
+        </field>
+        <field name="enemies" rel="ManyToManyRel" to="superheroes.enemy">
+            <object pk="6"></object>
+            <object pk="7"></object>
+        </field>
+    </object>
+    <object model="superheroes.superhero" pk="4">
+        <field name="name" type="CharField">Iron Man</field>
+        <field name="real_name" type="CharField">Tony Stark</field>
+        <field name="secret_identity" type="CharField">Tony Stark</field>
+        <field name="city" rel="ManyToOneRel" to="superheroes.city">4</field>
+        <field name="powers" rel="ManyToManyRel" to="superheroes.power">
+            <object pk="2"></object>
+            <object pk="9"></object>
+        </field>
+        <field name="enemies" rel="ManyToManyRel" to="superheroes.enemy">
+            <object pk="8"></object>
+        </field>
+    </object>
+</django-objects>
