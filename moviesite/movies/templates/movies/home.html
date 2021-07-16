@@ -1,0 +1,9 @@
+{% extends "movies/movies_base.html" %}
+{% block content %}
+<div class="container">
+    <h1>Welcome to Awesome Movies!</h1>
+    <a href="{% url 'movies:movie_list' %}">Movie List</a>
+    <a href="{% url 'movies:movie_form' %}">Add a Movie</a>
+</div>
+{% endblock content %}
+

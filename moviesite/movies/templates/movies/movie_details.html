@@ -1,0 +1,10 @@
+{% extends "movies/movies_base.html" %}
+{% block content %}
+<div class="container">
+<h1>{{ movie.title }}</h1>
+    <h2>{{ movie.director }}</h2>
+    <h3>{{ movie.run_time }} minutes</h3>
+    <a href="{% url 'movies:movie_list' %}">Back to movie list</a>
+</div>
+{% endblock content %}
+
