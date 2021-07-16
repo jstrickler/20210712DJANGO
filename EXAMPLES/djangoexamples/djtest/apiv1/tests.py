@@ -18,8 +18,8 @@ class TestSuperhero(TestCase):
             self.heroes_by_name[hero['name']] = hero
 
     def test_names(self):
-        url = reverse("apiv1:superherodetail", args=(1,))
-        response = self.client.get(url)
+        url = reverse("apiv1:superherodetail", args=(1,))  #  http://localhost/api/superherodetail/1
+        response = self.client.get(url)  # make http request and get http response
         self.assertEquals(response.json()['name'], 'Superman', "Content does not contain correct name")
 
     def test_secret_identities(self):

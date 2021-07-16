@@ -36,6 +36,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 'cjtech.django.auth',
+    # 'cjtech.django.dogs_core',
+    # some folder in PYTHONPATH must contain 'cjtech'
     'superheroes',
     'apiv1',
     # add your apps here:

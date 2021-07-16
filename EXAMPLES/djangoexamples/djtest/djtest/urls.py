@@ -25,6 +25,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('superheroes/', include('superheroes.urls', namespace="superheroes")),
     path('api/v1/', include('apiv1.urls', namespace="apiv1")),
+    path('myapp/', include('myapp.urls'), namespace="myapp"),
 ]
 
 # include Django Debug toolbar if DEBUG is set
