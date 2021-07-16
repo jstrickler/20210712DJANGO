@@ -1,30 +1,37 @@
 from django.test import TestCase, tag
-from django.urls import reverse
+from django.urls import reverse   #   {% url ... %}
 
-from superheroes.models import Superhero
+from superheroes.models import Superhero, Power, City, Enemy
 
 class SuperheroTests(TestCase):
 
-    fixtures = ['superheroes.json']
+    fixtures = ['superheroes']
+
 
     def test_clark_kent_is_supermans_secret_identity(self):
         s = Superhero.objects.get(name='Superman')
         self.assertEquals('Clark Kent', s.secret_identity)
 
-    def test_generic_list_success(self):
+    def test_fetch_superhero_ok(self):
         response = self.client.get(
             reverse('superheroes:hero', args=('Superman',))
         )
         self.assertEqual(response.status_code, 200)
 
-    def test_generic_list_success(self):
+    @tag('goofy')
+    def test_superhero_has_good_content(self):
         response = self.client.get(
             reverse('superheroes:hero', args=('Superman',))
         )
         self.assertIn(b'Superman', response.content)
 
+    @tag('goofy')
     @tag('silly')
     def test_two_plus_two_is_four(self):
         self.assertEqual(2 + 2, 4)
+
+class OtherTests(TestCase):
+    def test_something(self):
+        self.assertEqual(2, 2)
 
 #TODO: add form test
